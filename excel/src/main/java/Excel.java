@@ -10,7 +10,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class Excel {
     public static void main(String[] args) throws Exception {
         try {
-
             FileInputStream excelFile = new FileInputStream("C:\\Users\\lysik\\Downloads\\JAVA\\basicprogramming.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(excelFile);
             XSSFSheet sheet = workbook.getSheetAt(0);
