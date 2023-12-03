@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Topics {
     private final int idTopics;
     private final String name;
@@ -5,10 +8,12 @@ public class Topics {
     private int maxPracticeScore;
     private int maxSeminarScore;
     private int maxActivityScore;
+    private  List<Task> tasks;
 
     public Topics(int idTopics, String name){
         this.idTopics = idTopics;
         this.name = name;
+        tasks = new ArrayList<>();
     }
 
     public Topics(int idTopics, String name, int maxExerciseScore, int maxPracticeScore, int maxSeminarScore,
@@ -59,5 +64,23 @@ public class Topics {
 
     public String getName() {
         return name;
+    }
+    public List<Task> getTasks() {
+        return tasks;
+    }
+    public void addTasks(List<Task> addedTasks) {
+        if (addedTasks != null && !addedTasks.isEmpty()) {
+            tasks.addAll(addedTasks);
+        } else {
+            throw new IllegalArgumentException("Список не должен быть пустым");
+        }
+    }
+
+    public void addTask(Task addedTask) {
+        if (addedTask != null) {
+            tasks.add(addedTask);
+        } else {
+            throw new IllegalArgumentException("Задача должна быть проинициализирована");
+        }
     }
 }

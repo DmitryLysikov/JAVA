@@ -91,17 +91,17 @@ public class StudentPerformance {
         return List.copyOf(topics);
     }
 
-    public void addSections(List<Topics> addedTopics) {
-        if (addedTopics != null && !addedTopics.isEmpty()) {
-            topics.addAll(addedTopics);
+    public void addTopics(List<Topics> newTopics) {
+        if (newTopics != null && !newTopics.isEmpty()) {
+            topics.addAll(newTopics);
         } else {
             throw new IllegalArgumentException();
         }
     }
 
-    public void addSection(Topics addedTopic) {
-        if (addedTopic != null) {
-            topics.add(addedTopic);
+    public void addTopics(Topics newTopic) {
+        if (newTopic != null) {
+            topics.add(newTopic);
         } else {
             throw new IllegalArgumentException();
         }

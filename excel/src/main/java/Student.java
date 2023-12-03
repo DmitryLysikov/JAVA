@@ -23,7 +23,7 @@ public class Student {
     }
     public void setSurname(String surname){
         if (!surname.isEmpty() && surname != null){
-            this.name = surname;
+            this.surname = surname;
         }
         else {
             throw new IllegalArgumentException();
