@@ -3,8 +3,8 @@ import java.util.UUID;
 public class Task {
     private final int idTask;
     private final String nameTask;
-    private UUID sectionId;
-    private String sectionName;
+    private UUID topicsId;
+    private String topicsName;
     private final TaskСlassification taskClass;
     private int maxScore;;
     private int studentScore;
@@ -15,12 +15,12 @@ public class Task {
         this.taskClass = taskClass;
     }
 
-    public Task(int idTask, String nameTask, UUID sectionId, String sectionName, TaskСlassification taskClass, int maxScore,
+    public Task(int idTask, String nameTask, UUID topicsId, String topicsName, TaskСlassification taskClass, int maxScore,
                 int studentScore) {
         this.idTask = idTask;
         this.nameTask = nameTask;
-        this.sectionId = sectionId;
-        this.sectionName = sectionName;
+        this.topicsId = topicsId;
+        this.topicsName = topicsName;
         this.taskClass = taskClass;
         this.maxScore = maxScore;
         this.studentScore = studentScore;
@@ -34,12 +34,12 @@ public class Task {
         return nameTask;
     }
 
-    public UUID getSectionId() {
-        return sectionId;
+    public UUID getTopicsId() {
+        return topicsId;
     }
 
-    public String getSectionName() {
-        return sectionName;
+    public String getTopicsName() {
+        return topicsName;
     }
 
     public TaskСlassification getTaskclass() {

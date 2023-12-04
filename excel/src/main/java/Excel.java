@@ -9,7 +9,7 @@ public class Excel {
 
         Sheet sheet = reader.getSheet();
         ParsExcel parser = new ParsExcel(sheet);
-        var sections = parser.parseAndGetTopics();
+        var topic = parser.parseAndGetTopics();
         var students = parser.parseAndGetStudents();
 
 //        for (Student currentStudent: students) {
@@ -19,23 +19,41 @@ public class Excel {
 //                    currentStudent.getEmail() + " " +
 //                    currentStudent.getStudentGroup());
 //        }
-//        for (Topics topics : sections) {
-//            System.out.println(topics.getName());
-//        }
+        for (Topics topics : topic) {
+            System.out.print(topics.getIdTopics());
+            System.out.println(topics.getName());
+        }
 
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javaproct","root","Vladalove082409@");
-        Statement statement = connection.createStatement();
-        ResultSet set = statement.executeQuery("INSERT INTO student(namee, surname) VALUES (?, ?)");
 
-//        String insertQuery = "INSERT INTO student(namee, surname) VALUES (?, ?)";
+//        String insertQuery = "INSERT INTO student(namee,surname,email,studentgroup) VALUES (?,?,?,?)";
 //        PreparedStatement statement = connection.prepareStatement(insertQuery);
-
-//        // Заполняем запрос данными из объекта Employee
+        int i=0;
+        // Заполняем запрос данными из объекта
 //        for (Student student : students) {
-//            statement.set(1, student.getName());
+//            statement.setString(1, student.getName());
 //            statement.setString(2, student.getSurname());
+//            statement.setString(3, student.getEmail());
+//            statement.setString(4, student.getStudentGroup());
+//            statement.addBatch();
+//            i++;
+//            if (i % 1000 == 0 || i == students.size()) {
+//                statement.executeBatch();
+//            }
 //        }
-//        int count = statement.executeUpdate();
-//        System.out.println(count);
+        String insertQueryTopics = "INSERT INTO topics(idtopics,topicsname) VALUES (?,?)";
+        PreparedStatement statement = connection.prepareStatement(insertQueryTopics);
+        int j=0;
+        for (Topics topics : topic) {
+            statement.setInt(1, topics.getIdTopics());
+            statement.setString(2, topics.getName());
+            statement.addBatch();
+            j++;
+            if (j % 1000 == 0 || j == topic.size()) {
+                statement.executeBatch();
+            }
+        }
+        int count = statement.executeUpdate();
+        System.out.println(count);
     }
 }
