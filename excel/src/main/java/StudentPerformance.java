@@ -3,18 +3,20 @@ import java.util.List;
 import java.util.UUID;
 
 public class StudentPerformance {
-    private final UUID id;
-    private final UUID studentId;
-    private final int maxExerciseScore;
-    private final int maxPracticeScore;
-    private final int maxSeminarScore;
-    private final int maxActivityScore;
+    private UUID id;
+    private UUID studentId;
+    private int maxExerciseScore;
+    private int maxPracticeScore;
+    private int maxSeminarScore;
+    private int maxActivityScore;
     private int totalExerciseScore;
     private int totalPracticeScore;
     private int totalSeminarScore;
     private int totalActivityScore;
-    private final List<Topics> topics;
+    private List<Topics> topics;
+    public StudentPerformance(){
 
+    }
     public StudentPerformance(UUID id,
                               UUID studentId,
                               int maxExerciseScore,
@@ -51,8 +53,8 @@ public class StudentPerformance {
         return maxSeminarScore;
     }
 
-    public int getTotalExerciseScore() {
-        return totalExerciseScore;
+    public String getTotalExerciseScore() {
+        return Integer.toString(totalExerciseScore);
     }
 
     public void setTotalExerciseScore(int totalExerciseScore) {

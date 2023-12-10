@@ -79,7 +79,6 @@ public class ParsExcel {
 
         return topics;
     }
-
     private void parseNameAndSurnameCurrentStudent(String contentCell, Student currentStudent) {
         String[] data = contentCell.split(" ");
 
@@ -113,5 +112,4 @@ public class ParsExcel {
                 !contentCell.equals("Преподавателю о курсе") &&
                 !contentCell.isEmpty();
     }
-
 }
